@@ -1,0 +1,113 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%  Colors  %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{Blue}{RGB}{2,134,189}
+\definecolor{Green}{RGB}{2, 188, 173}
+\definecolor{Maroon}{RGB}{128, 0, 0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%  Styles  %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtcolorbox{classicboxstyle}[2][]{enhanced,colback=white,width={0.9\textwidth},
+attach boxed title to top left={yshift={-0.5\baselineskip},xshift=0.5cm}, 
+title={#2},
+boxrule=0.5pt,
+coltitle=black,
+boxed title style={enhanced,
+  borderline={0.1mm}{-0.1mm}{black,solid},
+  colframe=white,
+  colback=white,
+  colupper={black},
+},
+#1%
+}
+
+\newtcolorbox{colorboxstyle}[3][]{enhanced,colback=white,width={0.9\textwidth},
+attach boxed title to top left={yshift={-0.5\baselineskip},xshift=0.5cm}, 
+title={#2},
+boxrule=0.5pt,
+coltitle=#3,
+boxed title style={enhanced,
+  borderline={0.1mm}{-0.1mm}{#3,solid},
+  colframe=white,
+  colback=white,
+  colupper={black},
+},
+borderline={0.1mm}{0mm}{#3,solid}
+#1%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%  Commands  %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%boxes
+\newcommand{\titlebox}[2]{
+\begin{center}
+\begin{classicboxstyle}{#1}
+#2
+\end{classicboxstyle}
+\end{center}
+}
+
+\newcommand{\clrbox}[3]{
+\begin{center}
+\begin{colorboxstyle}{#1}{#3}
+#2
+\end{colorboxstyle}
+\end{center}
+}
+
+%help commands
+\newcommand\opt[1]{\textbf{#1}}
+\newcommand\bopt[1]{\textcolor{blue}{\textbf{#1}}}
+\newcommand\ropt[1]{\textcolor{red}{\textbf{#1}}}
+
+%\newcommand\opr{\underline{\textbf{Определение}}. }
+%\newcommand\teor[1]{\underline{\textbf{Теорема #1.}} }
+\newcommand\ter{\underline{\textbf{Теорема.}} }
+
+%proof
+\newcommand\sproof{\textbf{Доказательство:} \\$\square$}
+\newcommand\eproof{\text{\textbf{Что и требовалось доказать.}} \\$\blacksquare$}
+
+
+
+\newcommand{\rnum}[1]{\uppercase\expandafter{\romannumeral  #1 \relax}}
+
+
+\newcommand\opr[1]{\clrbox{Определение}{#1}{black}}
+\newcommand\hlp[1]{\clrbox{Пояснения}{#1}{Blue}}
+\newcommand\templ[2][]{\clrbox{Пример #1}{#2}{Green}}
+\newcommand\teor[2][]{\clrbox{Теорема #1}{#2}{Maroon}}
+
+%chapters without numerates
+\newcommand\chap[1]{\chapter*{#1}\addcontentsline{toc}{chapter}{#1}}
+\newcommand\sect[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
+\newcommand\subsect[1]{\subsection*{#1}\addcontentsline{toc}{section}{#1}}
+
+%enumarates
+\newcommand\numi[1]{\begin{enumerate}[label=\arabic*)] #1 \end{enumerate}}
+\newcommand\numr[1]{\begin{enumerate}[label=(\roman*)] #1 \end{enumerate}}
+\newcommand\numc[1]{\begin{enumerate}[label=\alph*)] #1 \end{enumerate}}
+
+
+%matrix
+\newcommand\agg[2]{\left[ \begin{array}{#1} #2 \end{array} \right.}
+\newcommand\sys[2]{\left\{ \begin{array}{#1} #2 \end{array} \right.}
+\newcommand\opred[2]{\left| \begin{array}{#1} #2 \end{array} \right|}
+\newcommand\chan[2]{\left| \begin{array}{#1} #2 \end{array} \right.}
+\newcommand\many[2]{\begin{array}{#1} #2 \end{array} }
+
+%img
+\newcommand\imglink[1]{(рис. \ref{#1})}
+\newcommand\addimg[1]{
+  \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\linewidth]{#1}
+    \end{figure}
+}
+
